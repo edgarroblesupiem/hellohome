@@ -796,5 +796,14 @@ body{
 
   left:260px;
 }
+/* ESPACIO PARA BOTON H² */
+
+@media(min-width:700px) and (max-width:1200px){
+
+  .top-title{
+
+    padding-left:90px;
+  }
+}
 
 
