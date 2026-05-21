@@ -6,6 +6,10 @@ import {
   useNavigate
 } from 'react-router-dom'
 
+import {
+  useState
+} from 'react'
+
 import Dashboard from './pages/Dashboard'
 import Agua from './pages/Agua'
 import Solar from './pages/Solar'
@@ -24,11 +28,26 @@ function App() {
 
   const navigate = useNavigate()
 
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
 
     <div className="layout">
 
-      <div className="sidebar">
+      {/* BOTON MENU */}
+
+      <button
+        className="menu-toggle"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+
+        ☰
+
+      </button>
+
+      {/* SIDEBAR */}
+
+      <div className={`sidebar ${menuOpen ? 'open' : ''}`}>
 
         <div className="logo">
 
@@ -79,6 +98,8 @@ function App() {
         </button>
 
       </div>
+
+      {/* CONTENIDO */}
 
       <div className="content">
 

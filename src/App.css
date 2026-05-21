@@ -676,4 +676,90 @@ body{
     text-align:center;
   }
 }
+/* MENU TOGGLE */
+
+.menu-toggle{
+
+  display:none;
+
+  position:fixed;
+
+  top:15px;
+
+  left:15px;
+
+  z-index:2000;
+
+  width:55px;
+
+  height:55px;
+
+  border:none;
+
+  border-radius:18px;
+
+  background:
+    rgba(0,191,255,0.15);
+
+  color:white;
+
+  font-size:28px;
+
+  backdrop-filter:blur(20px);
+
+  box-shadow:
+    0 0 25px rgba(0,191,255,0.35);
+
+  cursor:pointer;
+}
+
+/* ECHO SHOW / TABLET */
+
+@media(min-width:700px) and (max-width:1200px){
+
+  .menu-toggle{
+
+    display:block;
+  }
+
+  .sidebar{
+
+    position:fixed;
+
+    left:-280px;
+
+    top:0;
+
+    height:100vh;
+
+    z-index:1500;
+
+    transition:0.4s;
+
+    width:240px;
+
+    flex-direction:column;
+
+    overflow-y:auto;
+  }
+
+  .sidebar.open{
+
+    left:0;
+  }
+
+  .content{
+
+    width:100%;
+
+    padding:25px;
+  }
+
+  .dashboard-grid{
+
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+}
+
 
