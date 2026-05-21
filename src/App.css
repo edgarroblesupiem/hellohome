@@ -101,7 +101,7 @@ body{
 
 .top-title h1{
 
-  font-size:70px;
+  font-size:clamp(38px,6vw,70px);
 
   margin:0;
 
@@ -123,9 +123,11 @@ body{
   display:grid;
 
   grid-template-columns:
-    repeat(auto-fit,minmax(420px,1fr));
+    repeat(auto-fit,minmax(320px,1fr));
 
-  gap:30px;
+  gap:20px;
+
+  align-items:start;
 }
 
 .dashboard-card{
@@ -257,7 +259,7 @@ body{
 
 .temperature{
 
-  font-size:120px;
+  font-size:clamp(60px,10vw,120px);
 
   text-align:center;
 
@@ -301,9 +303,9 @@ body{
 
 .page-title{
 
-  font-size:70px;
+  font-size:clamp(34px,5vw,70px);
 
-  margin-bottom:40px;
+  margin-bottom:30px;
 }
 
 .page-grid{
@@ -527,3 +529,151 @@ body{
     filter:blur(0px);
   }
 }
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+  .dashboard-grid{
+
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+}
+
+@media(max-width:900px){
+
+  body{
+
+    overflow:auto;
+  }
+
+  .layout{
+
+    flex-direction:column;
+  }
+
+  .sidebar{
+
+    width:100%;
+
+    flex-direction:row;
+
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
+    padding:15px;
+
+    gap:10px;
+
+    border-right:none;
+
+    border-bottom:
+      1px solid rgba(255,255,255,0.08);
+  }
+
+  .sidebar button{
+
+    min-width:140px;
+
+    justify-content:center;
+
+    font-size:15px;
+
+    padding:14px;
+  }
+
+  .logo{
+
+    display:none;
+  }
+
+  .content{
+
+    padding:20px;
+  }
+
+  .dashboard-grid{
+
+    grid-template-columns:1fr;
+  }
+
+  .page-grid{
+
+    grid-template-columns:1fr;
+  }
+
+  .tank-circle{
+
+    width:190px;
+
+    height:190px;
+  }
+
+  .tank-percent{
+
+    font-size:40px;
+  }
+
+  .liters{
+
+    font-size:30px;
+  }
+
+  .dashboard-card{
+
+    padding:20px;
+  }
+
+  .solar-system{
+
+    transform:scale(0.85);
+  }
+}
+
+@media(max-width:500px){
+
+  .sidebar{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:999;
+
+    background:
+      rgba(0,0,0,0.75);
+
+    backdrop-filter:blur(25px);
+  }
+
+  .content{
+
+    padding-bottom:120px;
+  }
+
+  .dashboard-card h2{
+
+    font-size:22px;
+  }
+
+  .big-number{
+
+    font-size:38px;
+  }
+
+  .solar-system{
+
+    transform:scale(0.7);
+  }
+
+  .page-title{
+
+    text-align:center;
+  }
+}
+
