@@ -725,7 +725,7 @@ body{
 
   cursor:pointer;
 
-  transition:0.3s;
+  transition:0.4s;
 
   display:flex;
 
@@ -789,6 +789,12 @@ body{
     grid-template-columns:
       repeat(2,1fr);
   }
+}
+/* MOVER BOTON CUANDO MENU ABRE */
+
+.sidebar.open ~ .menu-toggle{
+
+  left:260px;
 }
 
 
