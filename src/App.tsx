@@ -34,17 +34,6 @@ function App() {
 
     <div className="layout">
 
-      {/* BOTON MENU */}
-
-      <button
-        className="menu-toggle"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-
-        H²
-
-      </button>
-
       {/* SIDEBAR */}
 
       <div className={`sidebar ${menuOpen ? 'open' : ''}`}>
@@ -98,6 +87,17 @@ function App() {
         </button>
 
       </div>
+      {/* BOTON MENU */}
+
+      <button
+        className="menu-toggle"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+
+        H²
+
+      </button>
+
 
       {/* CONTENIDO */}
 
