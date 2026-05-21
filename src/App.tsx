@@ -41,7 +41,7 @@ function App() {
         onClick={() => setMenuOpen(!menuOpen)}
       >
 
-        ☰
+        H²
 
       </button>
 
@@ -61,7 +61,7 @@ function App() {
 
           <FaHome />
 
-          Resumen
+          <span>Resumen</span>
 
         </button>
 
@@ -69,7 +69,7 @@ function App() {
 
           <FaTint />
 
-          Agua
+          <span>Agua</span>
 
         </button>
 
@@ -77,7 +77,7 @@ function App() {
 
           <FaSolarPanel />
 
-          Solar
+          <span>Solar</span>
 
         </button>
 
@@ -85,7 +85,7 @@ function App() {
 
           <FaTemperatureHigh />
 
-          Temperatura
+          <span>Temperatura</span>
 
         </button>
 
@@ -93,7 +93,7 @@ function App() {
 
           <FaRobot />
 
-          Domótica
+          <span>Domótica</span>
 
         </button>
 
