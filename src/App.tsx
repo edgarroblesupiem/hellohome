@@ -1,197 +1,120 @@
 import './App.css'
 
-import GaugeComponent from 'react-gauge-component'
+import {
+  Routes,
+  Route,
+  useNavigate
+} from 'react-router-dom'
+
+import Dashboard from './pages/Dashboard'
+import Agua from './pages/Agua'
+import Solar from './pages/Solar'
+import Temperatura from './pages/Temperatura'
+import Domotica from './pages/Domotica'
 
 import {
-  FaTemperatureHigh,
-  FaSolarPanel,
-  FaWifi,
+  FaHome,
   FaTint,
-  FaBolt,
-  FaBatteryHalf
+  FaSolarPanel,
+  FaTemperatureHigh,
+  FaRobot
 } from 'react-icons/fa'
-
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer
-} from 'recharts'
-
-import { motion } from 'framer-motion'
-
-const data = [
-  { hora: '1PM', agua: 80 },
-  { hora: '2PM', agua: 75 },
-  { hora: '3PM', agua: 70 },
-  { hora: '4PM', agua: 68 },
-  { hora: '5PM', agua: 60 },
-  { hora: '6PM', agua: 55 },
-]
 
 function App() {
 
-  const agua = 70
-  const litros = 1400
-  const temperatura = 24
-  const wifi = 480
-  const solar = 92
+  const navigate = useNavigate()
 
   return (
 
-    <div className="dashboard">
+    <div className="layout">
 
-      <div className="background-grid"></div>
-      <h1>HelloHome</h1>
+      <div className="sidebar">
 
-      <div className="top-status">
+        <div className="logo">
 
-        <div className="status-card">
-          <FaWifi />
-          <span>WiFi Online</span>
+          <h1>HELLOHOME</h1>
+
+          <p>AI CONTROL CENTER</p>
+
         </div>
 
-        <div className="status-card">
-          <FaBolt />
-          <span>Sistema Estable</span>
-        </div>
+        <button onClick={() => navigate('/')}>
 
-        <div className="status-card">
-          <FaBatteryHalf />
-          <span>Batería 88%</span>
-        </div>
+          <FaHome />
+
+          Resumen
+
+        </button>
+
+        <button onClick={() => navigate('/agua')}>
+
+          <FaTint />
+
+          Agua
+
+        </button>
+
+        <button onClick={() => navigate('/solar')}>
+
+          <FaSolarPanel />
+
+          Solar
+
+        </button>
+
+        <button onClick={() => navigate('/temperatura')}>
+
+          <FaTemperatureHigh />
+
+          Temperatura
+
+        </button>
+
+        <button onClick={() => navigate('/domotica')}>
+
+          <FaRobot />
+
+          Domótica
+
+        </button>
 
       </div>
 
-      <div className="container">
+      <div className="content">
 
-        {/* TANQUE */}
+        <Routes>
 
-        <motion.div
-          className="tank-card"
-          whileHover={{ scale: 1.03 }}
-        >
-
-          <h2>
-            <FaTint /> Tanque Inteligente
-          </h2>
-
-          <div className="circle">
-
-            <div
-              className="water"
-              style={{
-                height: `${agua}%`
-              }}
-            ></div>
-
-            <div className="percentage">
-              {agua}%
-            </div>
-
-          </div>
-
-          <div className="litros">
-            {litros} L
-          </div>
-
-        </motion.div>
-
-        {/* TEMPERATURA */}
-
-        <motion.div
-          className="temp-card"
-          whileHover={{ scale: 1.03 }}
-        >
-
-          <h2>
-            <FaTemperatureHigh /> Temperatura
-          </h2>
-
-          <div className="temp-value">
-            {temperatura}°C
-          </div>
-
-        </motion.div>
-
-        {/* WIFI */}
-
-        <motion.div
-          className="gauge-card"
-          whileHover={{ scale: 1.03 }}
-        >
-
-          <h2>
-            <FaWifi /> Velocidad WiFi
-          </h2>
-
-          <GaugeComponent
-            value={wifi}
-            maxValue={1000}
+          <Route
+            path="/"
+            element={<Dashboard />}
           />
 
-          <div className="speed-label">
-            {wifi} Mbps
-             </div>
-
-        </motion.div>
-
-        {/* SOLAR */}
-
-        <motion.div
-          className="solar-card"
-          whileHover={{ scale: 1.03 }}
-        >
-
-          <h2>
-            <FaSolarPanel /> Panel Solar
-          </h2>
-
-          <GaugeComponent
-            value={solar}
-            maxValue={100}
+          <Route
+            path="/agua"
+            element={<Agua />}
           />
 
-          <div className="solar-efficiency">
-            Eficiencia {solar}%
-          </div>
+          <Route
+            path="/solar"
+            element={<Solar />}
+          />
 
-        </motion.div>
+          <Route
+            path="/temperatura"
+            element={<Temperatura />}
+          />
 
-      </div>
+          <Route
+            path="/domotica"
+            element={<Domotica />}
+          />
 
-      {/* GRAFICA */}
-
-      <div className="chart-card">
-
-        <h2>Historial del Tanque</h2>
-
-        <ResponsiveContainer width="100%" height={300}>
-
-          <LineChart data={data}>
-
-            <XAxis dataKey="hora" />
-
-            <YAxis />
-
-            <Tooltip />
-
-            <Line
-              type="monotone"
-              dataKey="agua"
-              stroke="#00bfff"
-              strokeWidth={4}
-            />
-
-          </LineChart>
-
-        </ResponsiveContainer>
+        </Routes>
 
       </div>
 
     </div>
+
   )
 }
 
